@@ -1,7 +1,13 @@
 .un-slider-component {
   margin: 0 auto;
+  max-width: 600px;
   position: relative;
-  width: 600px;
+  width: 100%;
+}
+
+.un-slider-component ul li img {
+  height: auto;
+  width: 100%;
 }
 
 .un-slider-component .unslider-nav ol li {
