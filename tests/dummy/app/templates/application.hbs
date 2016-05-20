@@ -1,3 +1,5 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Test un-slider component</h2>
 
-{{outlet}}
+{{#un-slider slides=model as |slide|}}
+  <img src="{{slide.imageUrl}}"/>
+{{/un-slider}}

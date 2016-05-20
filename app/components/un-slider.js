@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-unslider/components/un-slider';

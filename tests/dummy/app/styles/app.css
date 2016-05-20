@@ -1,0 +1,12 @@
+.un-slider-component {
+  margin: 0 auto;
+  position: relative;
+  width: 600px;
+}
+
+.un-slider-component .unslider-nav ol li {
+  background-color: #aaa;
+}
+.un-slider-component .unslider-nav ol li.unslider-active {
+  background-color: black;
+}
