@@ -11,20 +11,20 @@ export default Ember.Component.extend({
   // Note that the infinite option seems to be missing from their documentation. 
 
   autoplay: false,
-  speed: 750,
+  speed: 400,
   delay: 300,
   index: 'first',
   keys: true,
   nav: true,
   arrows: true,
   animation: 'horizontal',
-  selectors: {
-    container: 'ul:first',
-    slides: 'li',
-  },
+  // selectors: {               // we actually don't want to allow the user to specify the selectors because our template assumes ul:first li. 
+  //   container: 'ul:first',
+  //   slides: 'li',
+  // },
   animateHeight: false,
   activeClass: 'unslider-active',
-  infinite: false,
+  infinite: true,
 
   // Internal private
   _attrsUpdated: true,       // for first load set to true
@@ -49,6 +49,8 @@ export default Ember.Component.extend({
 
     // We build the the component everytime its attrs change.
     if (this.get('_attrsUpdated')) {
+      // Unslider itself wraps the element we pass to it, which in this case is our component wrapper (ember-view).
+      // To keep things contained, we add our own container (see the template), which is wrapped by unslider. 
       this.$().find('.unslider-container').unslider({
         autoplay: this.get('autoplay'),
         speed: this.get('speed'),
@@ -58,7 +60,7 @@ export default Ember.Component.extend({
         nav: this.get('nav'),
         arrows: this.get('arrows'),
         animation: this.get('animation'),
-        selectors: this.get('selectors'),
+        // selectors: this.get('selectors'),      // we actually don't want to allow the user to specify the selectors because our template assumes ul:first li. 
         animateHeight: this.get('animateHeight'),
         activeClass: this.get('activeClass'),
         infinite: this.get('infinite')
