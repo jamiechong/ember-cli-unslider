@@ -1,6 +1,10 @@
 # ember-cli-unslider
 
-An Ember component wrapper for the jQuery unslider plugin.
+An Ember component wrapper for the jQuery Unslider plugin.
+
+## Description
+
+This addon provides the `{{un-slider}}` component, which uses [Unslider](http://unslider.com/). It comes with built in touch/swipe support and lets you fully customize the design of your slider.
 
 ## Installation
 
@@ -31,21 +35,18 @@ The component accepts the same params that the unslider plugin uses. See the [un
 
 ```
 autoplay: false
-speed: 750
+speed: 400
 delay: 300
 index: 'first'
 keys: true
 nav: true
 arrows: true
 animation: 'horizontal'
-selectors: {
-  container: 'ul:first',
-  slides: 'li',
-}
 animateHeight: false
 activeClass: 'unslider-active'
-infinite: false
+infinite: true
 ```
+
 
 An example using more params: 
 
@@ -55,6 +56,7 @@ An example using more params:
 {{/un-slider}}
 
 ```
+
 
 ## Support
 
