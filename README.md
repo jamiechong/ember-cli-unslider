@@ -1,26 +1,56 @@
-# Ember-cli-unslider
+# ember-cli-unslider
 
-This README outlines the details of collaborating on this Ember addon.
+An Ember component wrapper for the [jQuery unslider plugin](http://unslider.com/).
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `ember install ember-cli-unslider`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+The `un-slider` component expects an array of slides. Within its block you must define the HTML content used for each slide.
 
-## Running Tests
+```
+{{#un-slider slides=model as |slide|}}
+<img src="{{slide.url}}"/>
+{{/un-slider}}
+```
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+In the above example, `model` could look like this: 
 
-## Building
+```
+    [
+        { url: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=slide 1&w=600&h=400' }, 
+        { url: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=slide 2&w=600&h=400' }, 
+        { url: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=slide 3&w=600&h=400' }
+    ];
+```
 
-* `ember build`
+The component accepts the same params that the unslider plugin uses (see their docs). Here is what's accepted:
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+```
+  autoplay: false,
+  speed: 750,
+  delay: 300,
+  index: 'first',
+  keys: true,
+  nav: true,
+  arrows: true,
+  animation: 'horizontal',
+  selectors: {
+    container: 'ul:first',
+    slides: 'li',
+  },
+  animateHeight: false,
+  activeClass: 'unslider-active',
+  infinite: false,
+```
+
+An example using more params: 
+
+```
+    {{#un-slider slides=model nav=false dots=false infinite=true speed=200 keys=false as |slide|}}
+        <img src="{{slide.image}}" alt="{{slide.alt}}">
+    {{/un-slider}}
+
+```
