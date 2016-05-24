@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-unslider",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An Ember component wrapper for the jQuery unslider plugin.",
   "directories": {
     "doc": "doc",
