@@ -6,6 +6,8 @@ An Ember component wrapper for the jQuery Unslider plugin.
 
 This addon provides the `{{un-slider}}` component, which uses [Unslider](http://unslider.com/). It comes with built in touch/swipe support and lets you fully customize the design of your slider.
 
+See the [simple demo](http://jamiechong.github.io/ember-cli-unslider/).
+
 ## Installation
 
 `ember install ember-cli-unslider`

@@ -49,10 +49,14 @@
   },
   "keywords": [
     "ember-addon",
-    "ember-cli-unslider",
-    "jquery-unslider",
+    "slider",
     "unslider",
-    "slider-component"
+    "ember-slider",
+    "slides",
+    "swipe",
+    "slideshow",
+    "ember-cli-unslider",
+    "jquery-unslider"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "^1.0.3",
