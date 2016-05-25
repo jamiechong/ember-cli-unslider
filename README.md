@@ -1,5 +1,7 @@
 # ember-cli-unslider
 
+[![Build Status](https://travis-ci.org/jamiechong/ember-cli-unslider.svg?branch=master)](https://travis-ci.org/jamiechong/ember-cli-unslider)
+
 An Ember component wrapper for the jQuery Unslider plugin.
 
 ## Description
