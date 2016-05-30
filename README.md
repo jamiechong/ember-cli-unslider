@@ -55,7 +55,7 @@ infinite: true
 An example using more params: 
 
 ```
-{{#un-slider slides=model nav=false dots=false infinite=true speed=200 keys=false as |slide|}}
+{{#un-slider slides=model nav=false arrows=false speed=200 keys=false as |slide|}}
     <img src="{{slide.image}}" alt="{{slide.alt}}">
 {{/un-slider}}
 
