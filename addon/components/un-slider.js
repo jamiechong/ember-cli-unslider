@@ -51,7 +51,7 @@ export default Ember.Component.extend({
     this._cleanup();
   },
 
-  updateSlideIndex(event, index, /* slide */) {
+  updateSlideIndex(event, index) {
     this.set('_slideIndex', index);
   },
 
