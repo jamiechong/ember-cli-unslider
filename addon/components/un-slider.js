@@ -62,24 +62,18 @@ export default Ember.Component.extend({
     if (this.get('_attrsUpdated')) {
       // Unslider itself wraps the element we pass to it, which in this case is our component wrapper (ember-view).
       // To keep things contained, we add our own container (see the template), which is wrapped by unslider.
-      this.$().find('.unslider-container').unslider({
-        autoplay: this.get('autoplay'),
-        speed: this.get('speed'),
-        delay: this.get('delay'),
-        index: this.get('index'),
-        keys: this.get('keys'),
-        nav: this.get('nav'),
-        arrows: this.get('arrows'),
-        animation: this.get('animation'),
-        /**
-         * we actually don't want to allow the user to specify
-         * the selectors because our template assumes ul:first li.
-         * selectors: this.get('selectors'),
-         */
-        animateHeight: this.get('animateHeight'),
-        activeClass: this.get('activeClass'),
-        infinite: this.get('infinite')
-      }).unslider('destroySwipe')
+      /**
+       * we actually don't want to allow the user to specify
+       * the selectors because our template assumes ul:first li.
+       * therefore, it's not included in slider options
+       */
+      const sliderOptions = this.getProperties(
+        'autoplay', 'speed', 'delay', 'index', 'keys', 'nav', 'arrows',
+        'animation', 'animateHeight', 'activeClass', 'infinite'
+      );
+      this.$().find('.unslider-container')
+        .unslider(sliderOptions)
+        .unslider('destroySwipe')
         .unslider('initSwipe')
         .on('unslider.change', this.updateSlideIndex.bind(this))
         .on('unslider.ready', this.updateSlideIndex.bind(this));
