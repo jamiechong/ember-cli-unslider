@@ -4,7 +4,6 @@ import layout from '../templates/components/un-slider';
 export default Ember.Component.extend({
   layout,
 
-
   classNames: ['un-slider-component'],
 
   // Unslider options and settings taken straight from http://unslider.com/
@@ -32,6 +31,10 @@ export default Ember.Component.extend({
 
   // Internal private
   _attrsUpdated: true,       // for first load set to true
+  _slideIndex: 0,
+
+  // Public
+  slideIndex: Ember.computed.readOnly('_slideIndex'),
 
   _cleanup() {
     // We're about to trash the inner DOM behind unslider's/jQuery's back. Let's remove all
@@ -46,6 +49,10 @@ export default Ember.Component.extend({
   didUpdateAttrs() {
     this._super(...arguments);
     this._cleanup();
+  },
+
+  updateSlideIndex(event, index, /* slide */) {
+    this.set('_slideIndex', index);
   },
 
   didRender() {
@@ -73,7 +80,9 @@ export default Ember.Component.extend({
         activeClass: this.get('activeClass'),
         infinite: this.get('infinite')
       }).unslider('destroySwipe')
-        .unslider('initSwipe');
+        .unslider('initSwipe')
+        .on('unslider.change', this.updateSlideIndex.bind(this))
+        .on('unslider.ready', this.updateSlideIndex.bind(this));
 
       this.set('_attrsUpdated', false);
     }
