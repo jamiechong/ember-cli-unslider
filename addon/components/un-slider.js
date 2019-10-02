@@ -40,9 +40,9 @@ export default Ember.Component.extend({
     // We're about to trash the inner DOM behind unslider's/jQuery's back. Let's remove all
     // listeners and handlers and cleanup the DOM so unslider is ready to rebuild the component from
     // a clean DOM state.
-    this.$().find('*').off();
-    this.$().find('.unslider-container').unwrap();
-    this.$().find('.unslider-arrow, .unslider-nav').remove();
+    this.element.addEventListener('*').off();
+    this.element.addEventListener('.unslider-container').unwrap();
+    this.element.addEventListener('.unslider-arrow, .unslider-nav').remove();
     this.set('_attrsUpdated', true);
   },
 
@@ -71,7 +71,7 @@ export default Ember.Component.extend({
         'autoplay', 'speed', 'delay', 'index', 'keys', 'nav', 'arrows',
         'animation', 'animateHeight', 'activeClass', 'infinite'
       );
-      this.$().find('.unslider-container')
+      this.element.addEventListener('.unslider-container')
         .unslider(sliderOptions)
         .unslider('destroySwipe')
         .unslider('initSwipe')
